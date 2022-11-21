@@ -1,0 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .center_it {
+     display:flex; justify-content:center; align-items: center;
+    }
+    label:after {
+      content: '+';
+      position: absolute;
+      right: 1em;
+      color: #fff;
+    }
+    
+    input:checked + label:after {
+      content: '-';
+      line-height: .8em;
+    }
+    
+    .accordion__content{
+      max-height: 0em;
+      transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+    }
+    input[name='panel']:checked ~ .accordion__content {
+      /* Get this as close to what height you expect */
+      max-height: 50em;
+    }
+  }
